@@ -15,11 +15,6 @@ class App extends Component {
   }
 
   handleClick() {
-    this.setState(function(state, props) {
-      return {
-        numberOfClicks: state.numberOfClicks + 1
-      };
-    });
     this.generateQuote();
   }
 
@@ -40,7 +35,6 @@ class App extends Component {
       });
     })
     .catch(error => this.setState({ error }));
-
   }
 
   generateQuote = () => {
