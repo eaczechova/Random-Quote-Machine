@@ -1,23 +1,94 @@
-#title {
+@import url('https://fonts.googleapis.com/css?family=Lobster|Lora:400,400i,700');
 
+#main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  background-color: #f99192;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  padding-bottom: 50px;
+}
+
+#title {
+  padding: 50px;
+  color: #fff;
+  font-family: 'Lobster', cursive;
+  font-weight: 400;
 }
 
 #quote-box {
-
+  margin: 0 auto;
+  width: 80%;
+  background-color: #fff;
+  color: #f99192;
+  border-radius: 5px;
 }
 
 #text {
-
+  text-align: center;
+  padding: 2% 20%;
+  font-style: italic;
 }
 
 #author {
-
+  text-align: right;
+  padding: 2% 5%;
+  font-size: 14px;
 }
 
-#new-quote {
-
+#new-quote, #tweet-quote {
+  width: 80px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f99192;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 12px;
 }
 
 #tweet-quote {
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+#new-quote:focus, #tweet-quote:focus {
+  outline: none;
+}
+
+#new-quote:hover, #tweet-quote:hover {
+  background-color: #fff;
+  color: #f99192;
+  border: 1px solid #f99192;
+}
+
+@media screen and (min-width: 768px) {
+
+  #main {
+    font-size: 25px;
+  }
+
+  #quote-box {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  #text {
+    padding: 2% 10%;
+  }
+
+  #author {
+    padding: 2% 10%;
+    font-size: 16px;
+  }
+
+  #new-quote, #tweet-quote {
+    width: 120px;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 14px;
+  }
 
 }

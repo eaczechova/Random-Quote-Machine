@@ -63,12 +63,14 @@ class App extends Component {
     console.log(this.state.quotesArrayLength);
     console.log(this.state.randomNumber);
     return (
-      <div>
+      <div id="main">
         <h1 id="title">Random Quote Machine</h1>
-         <p id="text">Quote goes here: {this.state.text}</p>
-         <p id="author">Author goes here: {this.state.author}</p>
-        <button id="new-quote">Twitt</button>
-        <button id="tweet-quote" onClick={this.handleClick}>Next Quote</button>
+        <div id="quote-box">
+          <p id="text">{this.state.text}</p>
+          <p id="author"> - {this.state.author}</p>
+          <button id="tweet-quote">Twitt</button>
+          <button id="new-quote" onClick={this.handleClick}>New Quote</button>
+        </div>
       </div>
     );
   }
