@@ -9,13 +9,15 @@ class App extends Component {
       author: '',
       text: '',
       isLoaded: false,
-      quotesArrayLength: 1,
+      bgColor: '#f99192',
+      clickCount: 0,
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.generateQuote();
+    this.changeColor();
   }
 
   componentDidMount() {
@@ -53,11 +55,42 @@ class App extends Component {
     })
   }
 
+  changeColor = () => {
+    const color = ['#385a7c', '#f97171', '#f99192', '#8ad6cc', '#b2eee6'];
+    let i = this.state.clickCount;
+
+    this.setState({
+      clickCount: this.state.clickCount+1,
+    });
+
+    if(i<4) {
+      this.setState({
+        bgColor: color[i],
+      });
+    } else if(i>=4) {
+      this.setState({
+        bgColor: color[i],
+        clickCount: 0,
+      });
+    } else if (i===0) {
+      this.setState({
+        clickCount: this.state.clickCount+1,
+        bgColor: color[i],
+      });
+    }
+  }
+
   render() {
-    console.log(this.state.quotesArrayLength);
-    console.log(this.state.randomNumber);
     return (
       <div id="main">
+      <style>
+          {`
+          :root {
+            --main-bg-color: ${this.state.bgColor};
+            --main-txt-color: ${this.state.bgColor};
+            }
+          `}
+        </style>
         <h1 id="title">Random Quote Machine</h1>
         <div id="quote-box">
           <p id="text">{this.state.text}</p>
