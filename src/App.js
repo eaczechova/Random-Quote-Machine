@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class App extends Component {
       clickCount: 0,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.shareOnTwitter = this.shareOnTwitter.bind(this);
   }
 
   handleClick() {
@@ -80,6 +82,13 @@ class App extends Component {
     }
   }
 
+  shareOnTwitter = () => {
+    // found on https://gist.github.com/McKinneyDigital/2884508#file-share-twitter-js
+    var url = "twitter.com";
+    let text = `${this.state.author} - ${this.state.text}`
+    window.open('http://twitter.com/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '', 'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
+  }
+
   render() {
     return (
       <div id="main">
@@ -95,7 +104,7 @@ class App extends Component {
         <div id="quote-box">
           <p id="text">{this.state.text}</p>
           <p id="author"> - {this.state.author}</p>
-          <button id="tweet-quote">Twitt</button>
+          <button id="tweet-quote" onClick={this.shareOnTwitter}>Twitt</button>
           <button id="new-quote" onClick={this.handleClick}>New Quote</button>
         </div>
       </div>
