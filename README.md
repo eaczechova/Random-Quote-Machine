@@ -1,4 +1,4 @@
-#Random Quote Machine
+# Random Quote Machine
 
 A simple application that shows random quotes using API.
 
